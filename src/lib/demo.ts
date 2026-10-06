@@ -104,12 +104,12 @@ const DEMO_ITEMS: DemoItem[] = [
     ],
     variants: [
       {
-        title: "Batteur sur socle KitchenAid Artisan 5 pintes – rouge",
+        title: "Batteur sur socle KitchenAid Artisan 5 pintes – argent",
         description:
-          "Batteur sur socle KitchenAid Artisan, bol en inox de 5 pintes, couleur rouge empire.\n\n• Moteur puissant, 10 vitesses, fonctionne parfaitement\n• Inclus : bol, batteur plat, fouet et crochet pétrisseur\n• Quelques marques d'usage sur la base\n\nParfait pour la pâtisserie et le pain maison. Ramassage seulement.",
+          "Batteur sur socle KitchenAid Artisan, bol en inox de 5 pintes, couleur argent.\n\n• Moteur puissant, 10 vitesses, fonctionne parfaitement\n• Inclus : bol, batteur plat, fouet et crochet pétrisseur\n• Quelques marques d'usage sur la base\n\nParfait pour la pâtisserie et le pain maison. Ramassage seulement.",
       },
       {
-        title: "KitchenAid Artisan rouge – batteur sur socle avec accessoires",
+        title: "KitchenAid Artisan argent – batteur sur socle avec accessoires",
         description:
           "Mon fidèle KitchenAid Artisan cherche une nouvelle cuisine!\n\nBol inox 5 pintes, 10 vitesses, livré avec le fouet, le crochet pétrisseur et le batteur plat. Fonctionne comme au premier jour, légère usure cosmétique.\n\nÀ venir chercher. Prix ferme si ramassé cette semaine.",
       },
@@ -139,7 +139,7 @@ export function demoListing(req: AnalyzeRequest): Listing {
     const current = item.variants.findIndex(
       (v) => v.title === req.previous!.title,
     );
-    variantIndex = (current + 1) % item.variants.length;
+    variantIndex = (Math.max(current, 0) + 1) % item.variants.length;
   }
   const variant = item.variants[variantIndex];
 
